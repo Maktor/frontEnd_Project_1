@@ -2,12 +2,11 @@ body{
     background-color: black;
 }
 
-.startButton{
+button{
+    width: 100%;
     padding: 10px 10px;
 }
 
-div.hole1, div.hole2, div.hole3, div.hole4, div.hole5, div.hole6, div.hole7, div.hole8, div.hole9 {
-    content:url(pictures/hole.png);
-    width: 100px;
-    height: 100px;
+#word{
+    color: white;
 }
