@@ -1,24 +1,3 @@
-/*colors: #0D1321, #FFEDDF, #C5D86D, #86615C, #AFE0CE*/
-
 body{
     background-color: #0D1321;
-}
-
-#main{
-    margin: auto;
-    text-align: center;
-    width: 50%;
-}
-
-p{
-    color: #FFEDDF;
-    text-align: center;
-    font-size: 50px;
-}
-
-button{
-    padding: 20px 50px;
-    color: #0D1321;
-    border: none;
-    background-color: #AFE0CE;
 }
