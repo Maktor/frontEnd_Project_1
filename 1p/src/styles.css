@@ -1,0 +1,45 @@
+
+
+body{
+    background-color: #FFFFFC;
+    color: black;
+}
+
+#main {
+    width: 40%;
+    height: 200px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#guessButton {
+    border: none;
+    padding: 10px 20px;
+    background-color: #FF7F11;
+    color: #FFFFFC;
+}
+
+#guessButton:hover{
+    background-color: #4aa4ff;
+}
+
+#guessInput {
+    padding: 10px 60px;
+    background-color: #E2C391;
+    color: #251605;
+}
+
+#homeButton {
+    border: none;
+    padding: 10px 20px;
+    background-color: #FF7F11;
+    color: #FFFFFC;
+}
+
+#homeButton:hover{
+    background-color: #4aa4ff;
+}
