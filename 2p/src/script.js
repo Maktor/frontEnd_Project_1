@@ -1,7 +1,6 @@
 const mainDiv = document.getElementById("main");
 
 let createOnce = 1;
-storeWord = ""
 
 let ptag = document.createElement("p");
 ptag.innerHTML = "Player 2, close your eyes! Player 1, click next.";
@@ -36,9 +35,6 @@ nextButton1.addEventListener("click", () => {
         nextButton2.remove();
         guessWordInput.remove();
 
-        storeWord = guessWordInput.value;
-        alert(guessWordInput.value);
-
         ptag.innerHTML = "Player 2, start guessing letters. You only have 5 shots!";
 
         let placy = document.createElement("p");
@@ -47,6 +43,7 @@ nextButton1.addEventListener("click", () => {
 
         let guessInput = document.createElement("input");
         mainDiv.appendChild(guessInput);
+        guessInput.value.toLowerCase();
         guessInput.id = "guessInput";
 
         let guessButton = document.createElement("button");
@@ -54,10 +51,47 @@ nextButton1.addEventListener("click", () => {
         mainDiv.appendChild(guessButton);
         guessButton.id = "nextButton";
 
+        let incorrectGuesses = document.createElement("p");
+        incorrectGuesses.innerHTML = "Letters Guessed:";
+        mainDiv.appendChild(incorrectGuesses);
 
-        const newWord = document.getElementById("newWord");
-        const incorrectGuesses = document.getElementById("incorrectGuesses");
+        let toLowerCase1 = guessWordInput.value;
+        let storeWord = toLowerCase1.toLowerCase();
+        
+        let incorrectCounter = 0;
+        let maxIncorrectGuesses = 5;
 
+        let wordArray = storeWord.split("");
+        let displayArray = wordArray.map(() => "_");
+
+        placy.innerHTML = displayArray.join(" ");
+
+        guessButton.addEventListener("click", () => {
+          let guess = guessInput.value;
+          let isCorrect = false;
+        
+          for (let i = 0; i < wordArray.length; i++) {
+            guessInput.value = '';
+            if (wordArray[i] === guess) {
+              displayArray[i] = guess;
+              placy.innerHTML = displayArray.join(" ");
+              isCorrect = true;
+            }
+          }
+        
+          if (!isCorrect) {
+            incorrectCounter = incorrectCounter + 1;
+            incorrectGuesses.innerHTML += " " + guess;
+          } if (displayArray.join("") === storeWord) {
+            alert("Player 2 wins!");
+            guessInput.value = '';
+            location.reload();
+          } if (incorrectCounter >= maxIncorrectGuesses) {
+            alert("Player 2 lost, loser. Player 1 won, giga chad! The word was " + storeWord + "!");
+            location.reload();
+          }
+        });
+      
       }
     });
   }
