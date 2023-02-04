@@ -21,8 +21,8 @@ guessButton.addEventListener("click", () => {
     alert("Input is empty, type in a word!");
   } else if(guessInput.value.length > 1){
     alert("One letter at a time!");
+    guessInput.value = '';
   } else {
-
     for (let i = 0; i < wordArray.length; i++) {
       guessInput.value = '';
       if (wordArray[i] === guess) {
@@ -31,7 +31,6 @@ guessButton.addEventListener("click", () => {
         isCorrect = true;
       }
     }
-
     if (!isCorrect) {
       incorrectCounter = incorrectCounter + 1;
       incorrectGuesses.innerHTML += " " + guess;
