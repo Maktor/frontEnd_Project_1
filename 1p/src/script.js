@@ -3,7 +3,7 @@ const guessInput = document.getElementById("guessInput");
 const guessButton = document.getElementById("guessButton");
 const incorrectGuesses = document.getElementById("incorrectGuesses");
 
-const words = ["website", "javascript", "mobile", "laptop", "programming", "coding", "aaron", "macbook", "library", "women", "men", "africa", "happy", "chair", "chat", "book", "downtown", "empty", "number", "green", "goodbye"]
+const words = ["website", "javascript", "mobile", "laptop", "programming", "coding", "aaron", "macbook", "library", "women", "men", "africa", "happy", "chair", "chat", "book", "downtown", "empty", "number", "green", "goodbye"];
 var word = words[Math.floor(Math.random() * words.length)];
 
 let wordArray = word.split("");
@@ -17,24 +17,31 @@ guessButton.addEventListener("click", () => {
   let guess = guessInput.value;
   let isCorrect = false;
 
-  for (let i = 0; i < wordArray.length; i++) {
-    guessInput.value = '';
-    if (wordArray[i] === guess) {
-      displayArray[i] = guess;
-      placy.innerHTML = displayArray.join(" ");
-      isCorrect = true;
-    }
-  }
+  if(guessInput.value.length === 0){
+    alert("Input is empty, type in a word!");
+  } else if(guessInput.value.length > 1){
+    alert("One letter at a time!");
+  } else {
 
-  if (!isCorrect) {
-    incorrectCounter = incorrectCounter + 1;
-    incorrectGuesses.innerHTML += " " + guess;
-  } if (displayArray.join("") === word) {
-    alert("You win!");
-    guessInput.value = '';
-    location.reload();
-  } if (incorrectCounter >= maxIncorrectGuesses) {
-    alert("You lost, loser. The word was " + word);
-    location.reload();
+    for (let i = 0; i < wordArray.length; i++) {
+      guessInput.value = '';
+      if (wordArray[i] === guess) {
+        displayArray[i] = guess;
+        placy.innerHTML = displayArray.join(" ");
+        isCorrect = true;
+      }
+    }
+
+    if (!isCorrect) {
+      incorrectCounter = incorrectCounter + 1;
+      incorrectGuesses.innerHTML += " " + guess;
+    } if (displayArray.join("") === word) {
+      alert("You win!");
+      guessInput.value = '';
+      location.reload();
+    } if (incorrectCounter >= maxIncorrectGuesses) {
+      alert("You lost, loser. The word was " + word);
+      location.reload();
+    }
   }
 });

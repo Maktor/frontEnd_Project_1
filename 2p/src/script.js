@@ -24,16 +24,16 @@ nextButton1.addEventListener("click", () => {
   
     ptag.innerHTML = "Player 1, type in one word that you want Player 2 to guess. Click next to continue.";
   
-    let guessWordInput = document.createElement("input");
-    mainDiv.appendChild(guessWordInput);
-    guessWordInput.id = "guessInput";
+    let wordToGuess = document.createElement("input");
+    mainDiv.appendChild(wordToGuess);
+    wordToGuess.id = "guessInput";
   
     nextButton2.addEventListener("click", () => {
-      if(guessWordInput.value.length === 0){
+      if(wordToGuess.value.length === 0){
         alert("Input is empty, type in a word!");
       } else {
         nextButton2.remove();
-        guessWordInput.remove();
+        wordToGuess.remove();
 
         ptag.innerHTML = "Player 2, start guessing letters. You only have 5 shots!";
 
@@ -43,7 +43,6 @@ nextButton1.addEventListener("click", () => {
 
         let guessInput = document.createElement("input");
         mainDiv.appendChild(guessInput);
-        guessInput.value.toLowerCase();
         guessInput.id = "guessInput";
 
         let guessButton = document.createElement("button");
@@ -55,8 +54,8 @@ nextButton1.addEventListener("click", () => {
         incorrectGuesses.innerHTML = "Letters Guessed:";
         mainDiv.appendChild(incorrectGuesses);
 
-        let toLowerCase1 = guessWordInput.value;
-        let storeWord = toLowerCase1.toLowerCase();
+        let toLowerCase2 = wordToGuess.value;
+        let storeWord = toLowerCase2.toLowerCase();
         
         let incorrectCounter = 0;
         let maxIncorrectGuesses = 5;
@@ -67,28 +66,39 @@ nextButton1.addEventListener("click", () => {
         placy.innerHTML = displayArray.join(" ");
 
         guessButton.addEventListener("click", () => {
-          let guess = guessInput.value;
+
+          let toLowerCase1 = guessInput.value;
+          let guessInputStorage = toLowerCase1.toLowerCase();
+
+          let guess = guessInputStorage;
           let isCorrect = false;
-        
-          for (let i = 0; i < wordArray.length; i++) {
-            guessInput.value = '';
-            if (wordArray[i] === guess) {
-              displayArray[i] = guess;
-              placy.innerHTML = displayArray.join(" ");
-              isCorrect = true;
+
+          if(guessInputStorage.length === 0){
+
+            alert("Input is empty, type in a word!");
+
+          } else {
+            
+            for (let i = 0; i < wordArray.length; i++) {
+              guessInput.value = '';
+              if (wordArray[i] === guess) {
+                displayArray[i] = guess;
+                placy.innerHTML = displayArray.join(" ");
+                isCorrect = true;
+              }
             }
-          }
-        
-          if (!isCorrect) {
-            incorrectCounter = incorrectCounter + 1;
-            incorrectGuesses.innerHTML += " " + guess;
-          } if (displayArray.join("") === storeWord) {
-            alert("Player 2 wins!");
-            guessInput.value = '';
-            location.reload();
-          } if (incorrectCounter >= maxIncorrectGuesses) {
-            alert("Player 2 lost, loser. Player 1 won, giga chad! The word was " + storeWord + "!");
-            location.reload();
+
+            if (!isCorrect) {
+              incorrectCounter = incorrectCounter + 1;
+              incorrectGuesses.innerHTML += " " + guess;
+            } if (displayArray.join("") === storeWord) {
+              alert("Player 2 wins!" + " The word was " + storeWord + "! Thank you for playing (:");
+              guessInputStorage = '';
+              location.reload();
+            } if (incorrectCounter >= maxIncorrectGuesses) {
+              alert("Player 2 lost, loser. Player 1 won, giga chad! The word was " + storeWord + "!");
+              location.reload();
+            }
           }
         });
       
