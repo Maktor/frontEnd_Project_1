@@ -7,22 +7,22 @@
     <link rel="stylesheet" href="../1p/src/styles.css" />
   </head>
   <body>
-    
-    <div id="main">
+      <div id="main">
 
-      <h1>1 Player!</h1>
-      <a id="homeButton" href="../index.html">Home</a>
-      <br><br>
+        <h1>1 Player!</h1>
+        <a id="homeButton" href="../index.html">Home</a>
+        <button id="playAgain" onclick="">Play Again</button>
+        <br><br>
+  
+        <p>Only 5 mistakes are allowed</p>
+        <p id="placy"></p>
+        <input oninput="this.value=this.value.toLowerCase()" type="text" id="guessInput">
+        <button id="guessButton">Check</button>
+        <p id="incorrectGuesses">Letters Guessed:</p>
+        <br><br>
+        
+      </div>
 
-      <p>Only 5 mistakes are allowed</p>
-      <p id="placy"></p>
-      <input oninput="this.value=this.value.toLowerCase()" type="text" id="guessInput">
-      <button id="guessButton">Check</button>
-      <p id="incorrectGuesses">Letters Guessed:</p>
-      <br><br>
-      
-    </div>
-    
     <script src="../1p/src/script.js"></script>
   </body>
 </html>

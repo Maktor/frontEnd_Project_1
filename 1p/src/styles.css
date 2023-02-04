@@ -35,13 +35,18 @@ body{
     color: #251605;
 }
 
-#homeButton {
+#homeButton, #playAgain {
     border: none;
     padding: 10px 20px;
     background-color: #FF7F11;
     color: #FFFFFC;
+    text-decoration: none;
 }
 
-#homeButton:hover{
+#playAgain{
+    font-size: 16px;
+}
+
+#homeButton:hover, #playAgain:hover{
     background-color: #4aa4ff;
 }

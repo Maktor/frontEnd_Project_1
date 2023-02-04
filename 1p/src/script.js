@@ -1,6 +1,7 @@
 const placy = document.getElementById("placy");
 const guessInput = document.getElementById("guessInput");
 const guessButton = document.getElementById("guessButton");
+const playAgainButton = document.getElementById("playAgain");
 const incorrectGuesses = document.getElementById("incorrectGuesses");
 
 const words = ["website", "javascript", "mobile", "laptop", "programming", "coding", "aaron", "macbook", "library", "women", "men", "africa", "happy", "chair", "chat", "book", "downtown", "empty", "number", "green", "goodbye"];
@@ -12,6 +13,10 @@ let incorrectCounter = 0;
 let maxIncorrectGuesses = 5;
 
 placy.innerHTML = displayArray.join(" ");
+
+playAgainButton.addEventListener("click", () => {
+  location.reload();
+});
 
 guessButton.addEventListener("click", () => {
   let guess = guessInput.value;
@@ -35,12 +40,12 @@ guessButton.addEventListener("click", () => {
       incorrectCounter = incorrectCounter + 1;
       incorrectGuesses.innerHTML += " " + guess;
     } if (displayArray.join("") === word) {
-      alert("You win!");
+      incorrectGuesses.innerHTML = "You Won!";
+      incorrectGuesses.style.color = "#4aa4ff"
       guessInput.value = '';
-      location.reload();
     } if (incorrectCounter >= maxIncorrectGuesses) {
-      alert("You lost, loser. The word was " + word);
-      location.reload();
+      incorrectGuesses.innerHTML = "You lost, loser. The word was " + word + "!";
+      incorrectGuesses.style.color = "#4aa4ff"
     }
   }
 });
