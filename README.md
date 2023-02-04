@@ -1,7 +1,8 @@
 <h1>HANGMAN Offical</h1>
 (1st milestone project)<br>
 made by Mahdiyar Bahreman<br>
-For NC State Software Development Bootcamp 
+For NC State Software Development Bootcamp
+<br>
 
 Demo: https://maktor.github.io/frontEnd_Project_1/
 
