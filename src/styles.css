@@ -1,0 +1,31 @@
+*{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+#main {
+    text-align: center;
+    height: 200px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+a {
+    border: none;
+    padding: 5px 10px;
+    background-color: #4aa4ff;
+    color: #FFFFFC;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: #FF7F11;
+}

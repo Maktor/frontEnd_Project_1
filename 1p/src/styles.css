@@ -1,4 +1,6 @@
-
+*{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 
 body{
     background-color: #FFFFFC;
@@ -6,7 +8,7 @@ body{
 }
 
 #main {
-    width: 40%;
+    width: 30%;
     height: 200px;
     position: absolute;
     top:0;
@@ -29,7 +31,7 @@ body{
 
 #guessInput {
     padding: 10px 60px;
-    background-color: #E2C391;
+    background-color: #ffe6bd;
     color: #251605;
 }
 

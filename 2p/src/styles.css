@@ -1,11 +1,14 @@
-body{
+*{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body{
     background-color: #FFFFFC;
     color: black;
 }
 
-#main{
-    width: 30%;
+#main {
+    width: 40%;
     height: 200px;
     position: absolute;
     top:0;
@@ -15,21 +18,31 @@ body{
     margin: auto;
 }
 
-#guessButton {
+#homeButton {
+    border: none;
     padding: 10px 20px;
     background-color: #FF7F11;
     color: #FFFFFC;
 }
 
-#guessInput{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+#homeButton:hover{
+    background-color: #4aa4ff;
+}
+
+#nextButton {
+    border: none;
+    padding: 10px 20px;
+    background-color: #4aa4ff;
+    color: #FFFFFC;
+}
+
+#nextButton:hover{
+    background-color: #FF7F11;
+}
+
+#guessInput {
     padding: 10px 60px;
-    background-color: #E2C391;
+    background-color: #ffe6bd;
     color: #251605;
-}
-
-#playFriend{
-    padding: 10px 20px;
-    background-color: #FF7F11;
-    color: #FFFFFC;
+    margin-left: 10px;
 }
