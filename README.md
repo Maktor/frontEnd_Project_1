@@ -1,4 +1,4 @@
-<h1>HANGMAN Offical</h1>
+<h1 style="color: #FF7F11">HANGMAN Offical</h1>
 (1st milestone project)<br>
 made by Mahdiyar Bahreman<br>
 For NC State Software Development Bootcamp 
