@@ -18,15 +18,20 @@ body{
     margin: auto;
 }
 
-#homeButton {
+#homeButton, #playAgain {
+    text-decoration: none;
     border: none;
     padding: 10px 20px;
     background-color: #FF7F11;
     color: #FFFFFC;
 }
 
-#homeButton:hover{
+#homeButton:hover, #playAgain:hover{
     background-color: #4aa4ff;
+}
+
+#playAgain{
+    font-size: 16px;
 }
 
 #nextButton {

@@ -1,4 +1,5 @@
 const mainDiv = document.getElementById("main");
+const playAgainButton = document.getElementById("playAgain");
 
 let createOnce = 1;
 
@@ -11,11 +12,15 @@ nextButton1.innerHTML = "Next";
 mainDiv.appendChild(nextButton1);
 nextButton1.id = "nextButton";
 
+playAgainButton.addEventListener("click", () => {
+  location.reload();
+});
+
 nextButton1.addEventListener("click", () => {
 
   if(createOnce == 1){
     createOnce -= 1;
-    nextButton1.remove()
+    nextButton1.remove();
 
     let nextButton2 = document.createElement("button");
     nextButton2.innerHTML = "Next";
@@ -30,7 +35,8 @@ nextButton1.addEventListener("click", () => {
   
     nextButton2.addEventListener("click", () => {
       if(wordToGuess.value.length === 0){
-        alert("Input is empty, type in a word!");
+        ptag.innerHTML = "Input is empty, type in a word!";
+        ptag.style.color = "#4aa4ff";
       } else {
         nextButton2.remove();
         wordToGuess.remove();
@@ -74,11 +80,17 @@ nextButton1.addEventListener("click", () => {
           let isCorrect = false;
 
           if(guessInputStorage.length === 0){
-            alert("Input is empty, type in a word!");
+            ptag.innerHTML = "Input is empty, type in a word!";
+            ptag.style.color = "#4aa4ff";
           } else if(guessInputStorage.length > 1){
-            alert("One letter at a time!");
+            ptag.innerHTML = "One letter at a time!";
+            ptag.style.color = "#4aa4ff";
             guessInput.value = '';
           } else {
+
+            ptag.innerHTML = "Player 2, start guessing letters. You only have 5 shots!";
+            ptag.style.color = "black";
+
             for (let i = 0; i < wordArray.length; i++) {
               guessInput.value = '';
               if (wordArray[i] === guess) {
@@ -91,12 +103,16 @@ nextButton1.addEventListener("click", () => {
               incorrectCounter = incorrectCounter + 1;
               incorrectGuesses.innerHTML += " " + guess;
             } if (displayArray.join("") === storeWord) {
-              alert("Player 2 wins!" + " The word was " + storeWord + "! Thank you for playing (:");
+              ptag.innerHTML = "Player 2 wins!";
+              ptag.style.color = "#FF7F11";
               guessInputStorage = '';
-              location.reload();
+              guessInput.readOnly = true;
+              guessButton.disabled = true;
             } if (incorrectCounter >= maxIncorrectGuesses) {
-              alert("Player 2 lost, loser. Player 1 won, giga chad! The word was " + storeWord + "!");
-              location.reload();
+              ptag.innerHTML = "Player 2 lost, loser. Player 1 won, giga chad!";
+              ptag.style.color = "#FF7F11";
+              guessInput.readOnly = true;
+              guessButton.disabled = true;
             }
           }
         });

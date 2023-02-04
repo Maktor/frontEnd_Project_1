@@ -27,7 +27,8 @@ guessButton.addEventListener("click", () => {
     warning.innerHTML = "Input is empty, type in a word!";
     warning.style.color = "#4aa4ff";
   } else if(guessInput.value.length > 1){
-    alert("One letter at a time!");
+    warning.innerHTML = "One letter at a time!";
+    warning.style.color = "#4aa4ff";
     guessInput.value = '';
   } else {
 
@@ -49,9 +50,13 @@ guessButton.addEventListener("click", () => {
       incorrectGuesses.innerHTML = "You Won!";
       incorrectGuesses.style.color = "#4aa4ff";
       guessInput.value = '';
+      guessInput.readOnly = true;
+      guessButton.disabled = true;
     } if (incorrectCounter >= maxIncorrectGuesses) {
       incorrectGuesses.innerHTML = "You lost, loser. The word was " + word + "!";
       incorrectGuesses.style.color = "#4aa4ff";
+      guessInput.readOnly = true;
+      guessButton.disabled = true;
     }
   }
 });
