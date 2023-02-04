@@ -41,19 +41,22 @@ nextButton1.addEventListener("click", () => {
 
         ptag.innerHTML = "Player 2, start guessing letters. You only have 5 shots!";
 
-        let nextButton3 = document.createElement("button");
-        nextButton3.innerHTML = "Next";
-        mainDiv.appendChild(nextButton3);
-        nextButton3.id = "nextButton";
+        let placy = document.createElement("p");
+        placy.innerHTML = "";
+        mainDiv.appendChild(placy);
 
-        const placy = document.getElementById("placy");
-        const guessInput = document.getElementById("guessInput");
-        const guessButton = document.getElementById("guessButton");
+        let guessInput = document.createElement("input");
+        mainDiv.appendChild(guessInput);
+        guessInput.id = "guessInput";
+
+        let guessButton = document.createElement("button");
+        guessButton.innerHTML = "Guess";
+        mainDiv.appendChild(guessButton);
+        guessButton.id = "nextButton";
+
+
         const newWord = document.getElementById("newWord");
         const incorrectGuesses = document.getElementById("incorrectGuesses");
-
-        
-
 
       }
     });
