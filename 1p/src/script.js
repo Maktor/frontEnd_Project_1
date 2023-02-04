@@ -1,3 +1,4 @@
+const warning = document.getElementById("warning");
 const placy = document.getElementById("placy");
 const guessInput = document.getElementById("guessInput");
 const guessButton = document.getElementById("guessButton");
@@ -23,11 +24,16 @@ guessButton.addEventListener("click", () => {
   let isCorrect = false;
 
   if(guessInput.value.length === 0){
-    alert("Input is empty, type in a word!");
+    warning.innerHTML = "Input is empty, type in a word!";
+    warning.style.color = "#4aa4ff";
   } else if(guessInput.value.length > 1){
     alert("One letter at a time!");
     guessInput.value = '';
   } else {
+
+    warning.innerHTML = "Only 5 mistakes are allowed!";
+    warning.style.color = "black";
+
     for (let i = 0; i < wordArray.length; i++) {
       guessInput.value = '';
       if (wordArray[i] === guess) {
@@ -41,11 +47,11 @@ guessButton.addEventListener("click", () => {
       incorrectGuesses.innerHTML += " " + guess;
     } if (displayArray.join("") === word) {
       incorrectGuesses.innerHTML = "You Won!";
-      incorrectGuesses.style.color = "#4aa4ff"
+      incorrectGuesses.style.color = "#4aa4ff";
       guessInput.value = '';
     } if (incorrectCounter >= maxIncorrectGuesses) {
       incorrectGuesses.innerHTML = "You lost, loser. The word was " + word + "!";
-      incorrectGuesses.style.color = "#4aa4ff"
+      incorrectGuesses.style.color = "#4aa4ff";
     }
   }
 });
